@@ -24,7 +24,7 @@ public class Police_start {
          policemen.add(policeman2);
          policemen.add(policeman3);
         Worker worker1 = new Worker("Zoja","Ivanova","cleaning woman",400,"SOL");
-        Worker worker2 = new Worker("Olga","Domanov","cook",600,"no");
+        Worker worker2 = new Worker("Olga","Domanova","cook",600,"no");
         Worker worker3 = new Worker("Sergei","Petrov","electric",700,"no");
         List<Worker> workers=new ArrayList();
          workers.add(worker1);
