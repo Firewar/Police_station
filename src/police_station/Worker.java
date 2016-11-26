@@ -1,20 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package police_station;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="worker")
 /**
  *
  * @author Aleksandr
  */
 public class Worker {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String  Name;
     private String Surname;
     private String post;
     private Integer salary;
     private String  outsourcingfirma;
+
+    public Worker(String Name, String Surname, String post, Integer salary, String outsourcingfirma) {
+        this.Name = Name;
+        this.Surname = Surname;
+        this.post = post;
+        this.salary = salary;
+        this.outsourcingfirma = outsourcingfirma;
+    }
 
     public String getName() {
         return Name;
@@ -56,17 +71,17 @@ public class Worker {
         this.outsourcingfirma = outsourcingfirma;
     }
 
-    public Worker(String Name, String Surname, String post, Integer salary, String outsourcingfirma) {
-        this.Name = Name;
-        this.Surname = Surname;
-        this.post = post;
-        this.salary = salary;
-        this.outsourcingfirma = outsourcingfirma;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "\n Рабочий:" + "\n Имя:" + Name + "\n Фамилия " + Surname + "\n должность:" + post + "\n зарплата:" +"\n euro: "+ salary +"\n"+ outsourcingfirma+ "  - посредник";
+        return "Worker{" + "Name=" + Name + ", Surname=" + Surname + ", post=" + post + ", salary=" + salary + ", outsourcingfirma=" + outsourcingfirma + '}';
     }
     
 }

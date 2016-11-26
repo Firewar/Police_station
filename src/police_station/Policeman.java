@@ -1,19 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package police_station;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="policeman")
 /**
  *
  * @author Aleksandr
  */
 public class Policeman { 
+    
+    @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String surname;
     private String rank;
     private Integer salary;
+
+    public Policeman(String name, String surname, String rank, Integer salary) {
+        this.name = name;
+        this.surname = surname;
+        this.rank = rank;
+        this.salary = salary;
+    }
 
     public String getName() {
         return name;
@@ -47,19 +62,17 @@ public class Policeman {
         this.salary = salary;
     }
 
-    public Policeman(String name, String surname, String rank, Integer salary) {
-        this.name = name;
-        this.surname = surname;
-        this.rank = rank;
-        this.salary = salary;
-        
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "\n Полицейский:"+ "\n имя:" + name + "\n фамилия:" + surname + "\n звания:" + rank + "\n зарплата: " + salary +" EURO";
+        return "Policeman{" + "name=" + name + ", surname=" + surname + ", rank=" + rank + ", salary=" + salary + '}';
     }
 
-
-   
 }
